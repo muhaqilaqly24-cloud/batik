@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batik Holic - Warisan Batik, Gaya Masa Kini</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* Styling Dasar Body */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #faf8f5;
+      color: #333333;
+      position: relative;
+    }
+
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Warna Emas / Gold Utama */
+    .text-gold {
+      color: #c69214 !important;
+    }
+
+    .bg-gold {
+      background-color: #c69214 !important;
+      color: #ffffff !important;
+    }
+
+    .bg-gold:hover {
+      background-color: #b0810f !important;
+      color: #ffffff !important;
+    }
+
+    /* Warna Hitam & Cokelat Tua Background */
+    .bg-dark-custom {
+      background-color: #0d0906 !important;
+    }
+
+    .bg-brown-custom {
+      background-color: #2c1d11 !important;
+    }
+
+    .bg-card-custom {
+      background-color: #f4efe6 !important;
+    }
+
+    /* Section Title Custom */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-title .sub {
+      color: #c69214;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+    }
+    
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .section-title .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .section-title .divider::before, 
+    .section-title .divider::after {
+      content: "";
+      height: 1px;
+      width: 40px;
+      background-color: #c69214;
+    }
+
+    /* Custom Nav Tabs untuk Filter Katalog */
+    .nav-pills .nav-link {
+      color: #333333;
+      font-weight: 500;
+      border-radius: 20px;
+      padding: 6px 20px;
+      margin: 0 4px;
+      border: 1px solid #c69214;
+      background-color: #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    .nav-pills .nav-link.active,
+    .nav-pills .nav-link:hover {
+      background-color: #c69214 !important;
+      color: #ffffff !important;
+    }
+
+    /* Hero Section (Dengan Efek Parallax) */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                  url('batik1.jpg') center/cover no-repeat fixed;
+      padding: 120px 0;
+    }
+
+    .hero-divider-line {
+      height: 2px; 
+      width: 40px; 
+      background-color: #c69214;
+    }
+
+    /* Gallery Section Parallax */
+    .bg-brown-custom {
+      background-attachment: fixed;
+    }
+
+    /* Card Product & Hover Effect */
+    .card-product {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card-product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    }
+
+    .card-img-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-img-container img {
+      transition: transform 0.5s ease;
+    }
+
+    .card-product:hover .card-img-container img {
+      transform: scale(1.08);
+    }
+
+    /* Style Accordion FAQ Custom */
+    .accordion-item {
+      border: 1px solid #e2d7c5;
+      border-radius: 10px !important;
+      overflow: hidden;
+    }
+
+    .accordion-button {
+      font-weight: 600;
+      color: #2c1d11;
+      background-color: #ffffff;
+      box-shadow: none !important;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #f4efe6;
+      color: #c69214;
+    }
+
+    .accordion-button::after {
+      filter: sepia(100%) hue-rotate(10deg) saturate(500%);
+    }
+
+    /* Style Khusus Tombol Sosial Media Lingkaran */
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #1a110b;
+      color: #c69214;
+      border: 1px solid #c69214;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-btn:hover {
+      background-color: #c69214;
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    /* Styling Presisi Widget Melayang */
+    .floating-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .floating-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none !important;
+      color: #ffffff !important;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .floating-btn:hover {
+      transform: translateY(-3px) scale(1.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .floating-ig-btn {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+    }
+
+    .floating-wa-btn {
+      background-color: #25d366;
+      width: 50px;
+      height: 50px;
+      font-size: 26px;
+    }
+
+    .floating-wa-btn:hover {
+      background-color: #20ba5a;
+    }
+
+    /* Styling Toast Notifikasi Pesanan */
+    .order-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #ffffff;
+      border-left: 4px solid #c69214;
+      border-radius: 8px;
+      padding: 12px 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9998;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
+      pointer-events: none;
+      max-width: 320px;
+    }
+
+    .order-notification.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .order-notification .icon-box {
+      width: 36px;
+      height: 36px;
+      background-color: #f4efe6;
+      color: #c69214;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Feed Social Proof Overlay Hover */
+    .feed-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .feed-item img {
+      transition: transform 0.5s ease;
+    }
+
+    .feed-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(13, 9, 6, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .feed-item:hover .feed-overlay {
+      opacity: 1;
+    }
+
+    .feed-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* ANIMASI NAVBAR AKTIF DENGAN HIGHLIGHT EMAS */
+    .navbar-nav .nav-link {
+      position: relative;
+      color: #ffffff !important;
+      font-weight: 400;
+      padding: 8px 16px !important;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #0d0906 !important;
+      background-color: #c69214;
+      font-weight: 600;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(198, 146, 20, 0.4);
+    }
+
+    .navbar-nav .nav-link:hover:not(.active) {
+      color: #c69214 !important;
+      background-color: rgba(198, 146, 20, 0.15);
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#main-navbar" data-bs-smooth-scroll="true" tabindex="0">
+
+  <!-- WIDGET FLOATING WA & IG -->
+  <div class="floating-container">
+    <a href="https://instagram.com/batikholic" target="_blank" rel="noopener noreferrer" class="floating-btn floating-ig-btn" title="Kunjungi Instagram Kami">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/6281234567890?text=Halo%20Batik%20Holic,%20saya%20ingin%20bertanya%20mengenai%20katalog%20produk" target="_blank" rel="noopener noreferrer" class="floating-btn floating-wa-btn" title="Chat CS via WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- TOAST NOTIFIKASI PESANAN -->
+  <div id="orderNotif" class="order-notification">
+    <div class="icon-box">
+      <i class="fa-solid fa-bag-shopping"></i>
+    </div>
+    <div>
+      <p id="notifText" class="mb-0 fw-semibold text-dark style-text" style="font-size: 0.8rem; line-height: 1.2;"></p>
+      <small id="notifTime" class="text-muted" style="font-size: 0.7rem;"></small>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark-custom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 font-serif text-gold" href="#">
+        <i class="fa-solid fa-gem fa-lg"></i>
+        <div class="lh-1">
+          <span class="fw-bold d-block">BATIK</span>
+          <small class="text-white-50" style="font-size: 0.55rem; letter-spacing: 3px;">Holic</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-2 text-center">
+          <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Katalog Produk kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimoni">Testimoni</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center justify-content-center">
+
+  <a href="#menu" class="btn bg-gold text-white px-3 py-2 btn-sm fw-semibold">
+    SHOP NOW
+    <i class="fa-solid fa-bag-shopping ms-1"></i>
+  </a>
+
+</div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+          <h1 class="display-4 font-serif fw-bold mb-3">
+            Warisan Batik,<br>Gaya <span class="text-gold">Masa Kini</span>
+          </h1>
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="hero-divider-line"></div>
+            <i class="fa-solid fa-rhombus text-gold" style="font-size: 0.6rem;"></i>
+          </div>
+          <p class="lead fs-6 text-light mb-4">
+            Kami menghadirkan koleksi batik berkualitas tinggi dengan motif autentik Nusantara untuk melengkapi gaya Anda di setiap momen istimewa.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#menu" class="btn bg-gold px-4 py-2 fw-semibold btn-sm">EXPLORE COLLECTION <i class="fa-solid fa-chevron-right ms-1"></i></a>
+            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20pemesanan%20batik" target="_blank" class="btn btn-outline-light px-4 py-2 fw-semibold btn-sm"><i class="fa-brands fa-whatsapp me-1"></i> CHAT CS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section id="about" class="py-5">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+          <img src="batik2.jpg" alt="Batik Process" class="img-fluid rounded-3 shadow">
+        </div>
+        <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000">
+          <span class="text-gold fw-semibold text-uppercase small">TENTANG KAMI</span>
+          <h2 class="font-serif display-6 fw-bold mb-2">About Us</h2>
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div style="height: 1px; width: 40px; background-color: #c69214;"></div>
+            <i class="fa-solid fa-rhombus text-gold" style="font-size: 0.6rem;"></i>
+          </div>
+          <p class="text-muted small mb-4">
+            Batik Holic hadir untuk melestarikan warisan budaya Indonesia melalui karya batik berkualitas dengan sentuhan modern. Setiap helai batik kami dibuat dengan penuh dedikasi oleh pengrajin berpengalaman.
+          </p>
+          <div class="row g-3">
+            <div class="col-md-4 border-start border-2 border-warning ps-3">
+              <i class="fa-solid fa-hands-holding text-gold fa-2x mb-2"></i>
+              <h6 class="fw-bold mb-1">Handmade</h6>
+              <p class="text-muted mb-0" style="font-size: 0.75rem;">Dibuat secara teliti oleh pengrajin berpengalaman.</p>
+            </div>
+            <div class="col-md-4 border-start border-2 border-warning ps-3">
+              <i class="fa-solid fa-certificate text-gold fa-2x mb-2"></i>
+              <h6 class="fw-bold mb-1">Motif Nusantara</h6>
+              <p class="text-muted mb-0" style="font-size: 0.75rem;">Mengangkat keindahan motif tradisional dari berbagai daerah.</p>
+            </div>
+            <div class="col-md-4 border-start border-2 border-warning ps-3">
+              <i class="fa-solid fa-gem text-gold fa-2x mb-2"></i>
+              <h6 class="fw-bold mb-1">Bahan Berkualitas</h6>
+              <p class="text-muted mb-0" style="font-size: 0.75rem;">Menggunakan bahan pilihan yang nyaman dan tahan lama.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU / KOLEKSI SECTION -->
+  <section id="menu" class="py-5 bg-card-custom">
+    <div class="container py-4">
+      <div class="section-title" data-aos="fade-up">
+        <span class="sub">KOLEKSI KAMI</span>
+        <h2>Katalog Produk kami</h2>
+        <div class="divider"><i class="fa-solid fa-rhombus"></i></div>
+      </div>
+
+      <!-- Filter Kategori -->
+      <ul class="nav nav-pills justify-content-center mb-4" id="filter-tabs" data-aos="fade-up">
+        <li class="nav-item">
+          <button class="nav-link active" data-filter="all">Semua</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-filter="pria">Batik Pria</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-filter="wanita">Batik Wanita</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-filter="couple">Batik Couple</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-filter="modern">Batik Modern</button>
+        </li>
+      </ul>
+
+      <!-- Grid Daftar Produk -->
+      <div class="row g-4" id="product-container">
+        <!-- Item 1: Batik Pria -->
+        <div class="col-6 col-lg-3 product-item" data-category="pria" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-product border-0 shadow-sm text-center h-100">
+            <div class="card-img-container">
+              <img src="batikp.jpg" class="card-img-top" style="height: 220px; object-fit: cover;" alt="Batik Pria">
+            </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="card-title fs-6 fw-bold mb-1">Batik Pria</h5>
+                <p class="text-muted mb-0" style="font-size: 0.75rem;">Mulai dari</p>
+                <p class="fw-bold text-dark small mb-3">Rp 199.000</p>
+              </div>
+              <a href="https://wa.me/6281234567890?text=Halo,%20saya%20berminat%20dengan%20produk%20Batik%20Pria" target="_blank" class="btn btn-dark btn-sm w-100 py-2"><i class="fa-brands fa-whatsapp me-1"></i> ORDER VIA WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Batik Wanita -->
+        <div class="col-6 col-lg-3 product-item" data-category="wanita" data-aos="fade-up" data-aos-delay="200">
+          <div class="card card-product border-0 shadow-sm text-center h-100">
+            <div class="card-img-container">
+              <img src="batikw.jpg" class="card-img-top" style="height: 220px; object-fit: cover;" alt="Batik Wanita">
+            </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="card-title fs-6 fw-bold mb-1">Batik Wanita</h5>
+                <p class="text-muted mb-0" style="font-size: 0.75rem;">Mulai dari</p>
+                <p class="fw-bold text-dark small mb-3">Rp 199.000</p>
+              </div>
+              <a href="https://wa.me/6281234567890?text=Halo,%20saya%20berminat%20dengan%20produk%20Batik%20Wanita" target="_blank" class="btn btn-dark btn-sm w-100 py-2"><i class="fa-brands fa-whatsapp me-1"></i> ORDER VIA WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: Batik Couple -->
+        <div class="col-6 col-lg-3 product-item" data-category="couple" data-aos="fade-up" data-aos-delay="300">
+          <div class="card card-product border-0 shadow-sm text-center h-100">
+            <div class="card-img-container">
+              <img src="batikcp.jpg" class="card-img-top" style="height: 220px; object-fit: cover;" alt="Batik Couple">
+            </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="card-title fs-6 fw-bold mb-1">Batik Couple</h5>
+                <p class="text-muted mb-0" style="font-size: 0.75rem;">Mulai dari</p>
+                <p class="fw-bold text-dark small mb-3">Rp 349.000</p>
+              </div>
+              <a href="https://wa.me/6281234567890?text=Halo,%20saya%20berminat%20dengan%20produk%20Batik%20Couple" target="_blank" class="btn btn-dark btn-sm w-100 py-2"><i class="fa-brands fa-whatsapp me-1"></i> ORDER VIA WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4: Batik Modern -->
+        <div class="col-6 col-lg-3 product-item" data-category="modern" data-aos="fade-up" data-aos-delay="400">
+          <div class="card card-product border-0 shadow-sm text-center h-100">
+            <div class="card-img-container">
+              <img src="batikm.jpg" class="card-img-top" style="height: 220px; object-fit: cover;" alt="Batik Modern">
+            </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="card-title fs-6 fw-bold mb-1">Batik Modern</h5>
+                <p class="text-muted mb-0" style="font-size: 0.75rem;">Mulai dari</p>
+                <p class="fw-bold text-dark small mb-3">Rp 349.000</p>
+              </div>
+              <a href="https://wa.me/6281234567890?text=Halo,%20saya%20berminat%20dengan%20produk%20Batik%20Modern" target="_blank" class="btn btn-dark btn-sm w-100 py-2"><i class="fa-brands fa-whatsapp me-1"></i> ORDER VIA WA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery" class="py-5 bg-brown-custom text-white">
+    <div class="container py-4">
+      <div class="section-title" data-aos="fade-up">
+        <span class="sub">GALERI & SOCIAL FEED</span>
+        <h2 class="text-white">Gallery</h2>
+        <div class="divider"><i class="fa-solid fa-rhombus"></i></div>
+      </div>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="p-1 border border-secondary rounded feed-item">
+            <img src="batik3.jpg" class="img-fluid rounded" style="height: 180px; width: 100%; object-fit: cover;" alt="Galeri 1">
+            <a href="https://instagram.com/batikholic" target="_blank" class="feed-overlay">
+              <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="p-1 border border-secondary rounded feed-item">
+            <img src="batik4.jpg" class="img-fluid rounded" style="height: 180px; width: 100%; object-fit: cover;" alt="Galeri 2">
+            <a href="https://instagram.com/batikholic" target="_blank" class="feed-overlay">
+              <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="p-1 border border-secondary rounded feed-item">
+            <img src="batik5.jpg" class="img-fluid rounded" style="height: 180px; width: 100%; object-fit: cover;" alt="Galeri 3">
+            <a href="https://instagram.com/batikholic" target="_blank" class="feed-overlay">
+              <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="p-1 border border-secondary rounded feed-item">
+            <img src="batik6.jpg" class="img-fluid rounded" style="height: 180px; width: 100%; object-fit: cover;" alt="Galeri 4">
+            <a href="https://instagram.com/batikholic" target="_blank" class="feed-overlay">
+              <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" data-aos="fade-up">
+        <a href="https://instagram.com/batikholic" target="_blank" class="btn bg-gold px-4 py-2 text-white fw-semibold btn-sm"><i class="fa-brands fa-instagram me-1"></i> VIEW MORE ON INSTAGRAM</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI SECTION -->
+  <section id="testimoni" class="py-5">
+    <div class="container py-4">
+      <div class="section-title" data-aos="fade-up">
+        <span class="sub">TESTIMONI PELANGGAN</span>
+        <h2>Testimoni</h2>
+        <div class="divider"><i class="fa-solid fa-rhombus"></i></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-3 bg-white rounded border d-flex gap-3 h-100 align-items-center shadow-sm">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" alt="Dewi">
+            <div>
+              <h6 class="fw-bold mb-0">Dewi Ananda</h6>
+              <small class="text-muted d-block mb-1" style="font-size: 0.75rem;">Yogyakarta</small>
+              <div class="text-gold mb-1" style="font-size: 0.75rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-muted small mb-0" style="font-size: 0.8rem;">Batiknya sangat bagus, motifnya unik dan bahannya nyaman dipakai. Sangat puas!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-3 bg-white rounded border d-flex gap-3 h-100 align-items-center shadow-sm">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" alt="Budi">
+            <div>
+              <h6 class="fw-bold mb-0">Budi Santoso</h6>
+              <small class="text-muted d-block mb-1" style="font-size: 0.75rem;">Bandung</small>
+              <div class="text-gold mb-1" style="font-size: 0.75rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-muted small mb-0" style="font-size: 0.8rem;">Pelayanan ramah dan pengiriman cepat. Kualitas batiknya sesuai ekspektasi. Pasti beli lagi!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="p-3 bg-white rounded border d-flex gap-3 h-100 align-items-center shadow-sm">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" alt="Rina">
+            <div>
+              <h6 class="fw-bold mb-0">Rina Kurnia</h6>
+              <small class="text-muted d-block mb-1" style="font-size: 0.75rem;">Surabaya</small>
+              <div class="text-gold mb-1" style="font-size: 0.75rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-muted small mb-0" style="font-size: 0.8rem;">Motif batiknya cantik-cantik dan bikinnya juga rapi. Recommended!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- FAQ SECTION -->
+  <section id="faq" class="py-5 bg-card-custom">
+    <div class="container py-4">
+      <div class="section-title">
+        <span class="sub">PERTANYAAN YANG SERING DIAJUKAN</span>
+        <h2>FAQ</h2>
+        <div class="divider"><i class="fa-solid fa-rhombus"></i></div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion shadow-sm" id="accordionFAQ">
+            
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item mb-3 border-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button custom-faq-btn" type="button" data-target="#collapseOne">
+                  <i class="fa-solid fa-cart-shopping text-gold me-3"></i> Bagaimana cara memesan produk di Batik Holic?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body text-muted small">
+                  Anda dapat memilih katalog di menu utama, lalu menekan tombol <strong>Order via WA</strong> untuk langsung terhubung dengan Customer Service kami.
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item mb-3 border-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button custom-faq-btn collapsed" type="button" data-target="#collapseTwo">
+                  <i class="fa-solid fa-truck-fast text-gold me-3"></i> Berapa lama proses pengiriman?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body text-muted small">
+                  Pengiriman reguler memakan waktu 2–4 hari kerja tergantung kota tujuan. Nomor resi akan dikirimkan otomatis via WhatsApp setelah paket dikirim.
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button custom-faq-btn collapsed" type="button" data-target="#collapseThree">
+                  <i class="fa-solid fa-pen-ruler text-gold me-3"></i> Apakah bisa custom motif batik?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body text-muted small">
+                  Ya, kami menerima pemesanan khusus/custom untuk seragam kantor maupun acara keluarga melalui sesi konsultasi gratis via WhatsApp.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-5">
+    <div class="container py-4">
+      <div class="section-title" data-aos="fade-up">
+        <span class="sub">HUBUNGI KAMI</span>
+        <h2>Kunjungi Kami</h2>
+        <div class="divider"><i class="fa-solid fa-rhombus"></i></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+          <div class="rounded overflow-hidden h-100 shadow-sm" style="min-height: 250px;">
+            <iframe src="https://www.google.com/maps?q=Pangkajene,+Kabupaten+Pangkajene+dan+Kepulauan,+Sulawesi+Selatan&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+          <form onsubmit="event.preventDefault();">
+            <div class="row g-2 mb-2">
+              <div class="col-6">
+                <input type="text" class="form-control form-control-sm bg-light border-0 py-2" placeholder="Nama Lengkap">
+              </div>
+              <div class="col-6">
+                <input type="email" class="form-control form-control-sm bg-light border-0 py-2" placeholder="Email">
+              </div>
+            </div>
+            <div class="mb-2">
+              <input type="tel" class="form-control form-control-sm bg-light border-0 py-2" placeholder="No. Telepon">
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control form-control-sm bg-light border-0 py-2" rows="4" placeholder="Pesan"></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark w-100 py-2 btn-sm fw-semibold">
+              KIRIM PESAN <i class="fa-solid fa-paper-plane ms-1"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark-custom text-white-50 py-5 fs-6">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand d-flex align-items-center gap-2 font-serif text-gold mb-3" href="#">
+            <i class="fa-solid fa-gem fa-lg"></i>
+            <div class="lh-1">
+              <span class="fw-bold d-block">BATIK</span>
+              <small class="text-white-50" style="font-size: 0.55rem; letter-spacing: 3px;">HOLIC</small>
+            </div>
+          </a>
+          <p class="small me-lg-4">Melestarikan warisan budaya bangsa melalui batik berkualitas dengan motif autentik Nusantara.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://instagram.com/batikholic" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram Batik Holic">
+              <i class="fa-brands fa-instagram fa-lg"></i>
+            </a>
+            <a href="https://wa.me/6281234567890?text=Halo%20Batik%20Holic" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp Batik Holic">
+              <i class="fa-brands fa-whatsapp fa-lg"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="text-white mb-3 small fw-bold">QUICK LINKS</h6>
+          <ul class="list-unstyled small mb-0">
+            <li class="mb-2"><a href="#hero" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
+            <li class="mb-2"><a href="#menu" class="text-white-50 text-decoration-none">Katalog Produk kami</a></li>
+            <li class="mb-2"><a href="#gallery" class="text-white-50 text-decoration-none">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="text-white mb-3 small fw-bold">KATEGORI</h6>
+          <ul class="list-unstyled small mb-0">
+            <li class="mb-2"><a href="#menu" class="text-white-50 text-decoration-none">Batik Pria</a></li>
+            <li class="mb-2"><a href="#menu" class="text-white-50 text-decoration-none">Batik Wanita</a></li>
+            <li class="mb-2"><a href="#menu" class="text-white-50 text-decoration-none">Batik Couple</a></li>
+            <li class="mb-2"><a href="#menu" class="text-white-50 text-decoration-none">Batik Modern</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="text-white mb-3 small fw-bold">KONTAK KAMI</h6>
+          <ul class="list-unstyled small mb-0">
+            <li class="mb-2 d-flex gap-2"><i class="fa-solid fa-location-dot text-gold mt-1"></i> <span>Jl. Malioboro No. 123, Yogyakarta, Indonesia</span></li>
+            <li class="mb-2 d-flex gap-2 align-items-center">
+              <i class="fa-brands fa-whatsapp text-gold"></i> 
+              <a href="https://wa.me/6281234567890?text=Halo%20Batik%20Holic" target="_blank" rel="noopener noreferrer" class="text-white-50 text-decoration-none">+62 812-3456-7890 (Chat WA)</a>
+            </li>
+            <li class="mb-2 d-flex gap-2 align-items-center">
+              <i class="fa-brands fa-instagram text-gold"></i> 
+              <a href="https://instagram.com/batikholic" target="_blank" rel="noopener noreferrer" class="text-white-50 text-decoration-none">@batikholic</a>
+            </li>
+            <li class="mb-2 d-flex gap-2"><i class="fa-solid fa-envelope text-gold mt-1"></i> <span>info@batikholic.com</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT UTAMA -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+
+  // Inisialisasi AOS
+  AOS.init({
+    once: true,
+    duration: 800
+  });
+
+
+  // ==========================================
+  // SCROLLSPY NAVBAR
+  // ==========================================
+
+  const navbarLinks = document.querySelectorAll('#main-navbar .nav-link');
+
+  const sections = [
+    document.getElementById('hero'),
+    document.getElementById('about'),
+    document.getElementById('menu'),
+    document.getElementById('gallery'),
+    document.getElementById('testimoni'),
+    document.getElementById('faq'),
+    document.getElementById('contact')
+  ];
+
+  function updateScrollSpy() {
+
+    const scrollPosition = window.scrollY + 150;
+
+    let currentSection = 'hero';
+
+    sections.forEach(section => {
+
+      if (!section) return;
+
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
+        currentSection = section.getAttribute('id');
+      }
+
+    });
+
+    navbarLinks.forEach(link => {
+
+      link.classList.remove('active');
+
+      if (link.getAttribute('href') === '#' + currentSection) {
+        link.classList.add('active');
+      }
+
+    });
+
+  }
+
+  window.addEventListener('scroll', updateScrollSpy);
+
+  window.addEventListener('load', updateScrollSpy);
+
+
+  // ==========================================
+  // SMOOTH SCROLL NAVBAR
+  // ==========================================
+
+  navbarLinks.forEach(link => {
+
+    link.addEventListener('click', function(e) {
+
+      const targetId = this.getAttribute('href');
+
+      if (!targetId || !targetId.startsWith('#')) return;
+
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+
+        e.preventDefault();
+
+        const navbarHeight =
+          document.getElementById('main-navbar').offsetHeight;
+
+        const targetPosition =
+          targetSection.offsetTop - navbarHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+      }
+
+    });
+
+  });
+
+
+  // SCRIPT LOGIKA ACCORDION FAQ
+
+      // SCRIPT LOGIKA ACCORDION FAQ
+      document.querySelectorAll('.custom-faq-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-target');
+          const targetElement = document.querySelector(targetId);
+          
+          document.querySelectorAll('#accordionFAQ .accordion-collapse').forEach(item => {
+            if (item !== targetElement) {
+              item.classList.remove('show');
+              if (item.previousElementSibling) {
+                const btn = item.previousElementSibling.querySelector('.custom-faq-btn');
+                if (btn) btn.classList.add('collapsed');
+              }
+            }
+          });
+
+          if (targetElement.classList.contains('show')) {
+            targetElement.classList.remove('show');
+            this.classList.add('collapsed');
+          } else {
+            targetElement.classList.add('show');
+            this.classList.remove('collapsed');
+          }
+        });
+      });
+
+      // Script Filter Produk
+      const filterButtons = document.querySelectorAll('#filter-tabs .nav-link');
+      const productItems = document.querySelectorAll('.product-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const filterValue = button.getAttribute('data-filter');
+
+          productItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            if (filterValue === 'all' || filterValue === itemCategory) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Script Pop-up Notifikasi Pesanan
+      const buyerNames = ["Siti A.", "Budi S.", "Andi M.", "Rina K.", "Dian P.", "Hendra T.", "Nia W."];
+      const cities = ["Jakarta", "Surabaya", "Bandung", "Makassar", "Medan", "Semarang", "Yogyakarta"];
+      const products = ["Batik Pria Premium", "Batik Wanita Elegant", "Batik Couple Sarimbit", "Batik Modern Slimfit"];
+      const timeAgoList = ["Baru saja", "1 menit lalu", "2 menit lalu", "5 menit lalu"];
+
+      const notifElement = document.getElementById("orderNotif");
+      const notifText = document.getElementById("notifText");
+      const notifTime = document.getElementById("notifTime");
+
+      function showRandomNotification() {
+        const randomName = buyerNames[Math.floor(Math.random() * buyerNames.length)];
+        const randomCity = cities[Math.floor(Math.random() * cities.length)];
+        const randomProduct = products[Math.floor(Math.random() * products.length)];
+        const randomTime = timeAgoList[Math.floor(Math.random() * timeAgoList.length)];
+
+        notifText.innerHTML = `<strong>${randomName}</strong> (${randomCity}) baru saja membeli <strong>${randomProduct}</strong>`;
+        notifTime.innerText = randomTime;
+
+        notifElement.classList.add("show");
+
+        setTimeout(() => {
+          notifElement.classList.remove("show");
+        }, 4000);
+      }
+
+      setTimeout(showRandomNotification, 3000);
+
+      setInterval(() => {
+        showRandomNotification();
+      }, Math.floor(Math.random() * 4000) + 8000);
+    });
+  </script>
+</body>
+</html>
